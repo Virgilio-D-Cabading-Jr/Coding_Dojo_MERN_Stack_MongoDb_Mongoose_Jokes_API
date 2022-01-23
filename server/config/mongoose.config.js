@@ -1,8 +1,15 @@
-const mongoose = require("mongoose");
+/////////////////////////////////////////////////
+//  MONGOOSE CONFIG
+/////////////////////////////////////////////////
 
-mongoose.connect("mongodb://localhost/name_of_your_DB", {
+// //// FIELDS //////////////////////////////////
+const mongoose = require("mongoose");
+const DATABASE_NAME = "jokes_db"
+
+// //// CONNECT SERVER TO DATABASE //////////////
+mongoose.connect("mongodb://localhost/" + DATABASE_NAME, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 })
-	.then(() => console.log("Established a connection to the database"))
-	.catch(err => console.log("Something went wrong when connecting to the database", err));
+	.then(() => console.log("🌮🌮🌮 Established a connection to the database ${ DATABASE_NAME } 🌮🌮🌮"))
+	.catch(err => console.log(`🤷🤷🤷 Something went wrong when connecting to the database ${ DATABASE_NAME } 🤷🤷🤷`, err));
