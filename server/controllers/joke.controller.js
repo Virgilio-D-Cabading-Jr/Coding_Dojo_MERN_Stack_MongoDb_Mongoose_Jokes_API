@@ -74,4 +74,26 @@ module.exports.fineOneJoke = (req, res) => {
 
 // //// UPDATE //////////////////////////////////
 
+
 // //// DELETE //////////////////////////////////
+
+/**
+ * Delete a Joke by ID (on Request Params)
+ * @param {*} res 
+ * @param {*} res 
+ */
+module.exports.deleteOneJoke = (res, res) => {
+    Joke.findByIdAndDelete(req.params.id)
+        .then(
+            result => res.json ({
+                result: result,
+                message: "🎉🎉🎉 Success: Deleted a Joke  🎉🎉🎉"
+            })
+        )
+        .catch( err =>
+            res.json({
+                message: "🛑🛑🛑 Failure: UnAble to Delete a Joke 🛑🛑🛑",
+                error: err
+            })
+        )
+};
