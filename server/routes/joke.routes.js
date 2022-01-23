@@ -9,6 +9,7 @@ const Joke = require("../models/joke.model");
 // //// ROUTES //////////////////////////////////
 module.exports = app => {
     // **** Create ******************************
+    app.post("/api/jokes/new", JokeController.createNewJoke);
 
     // **** Retrieve ****************************
     app.get("/api/jokes", JokeController.findAllJokes);
@@ -17,6 +18,5 @@ module.exports = app => {
     // **** Update ******************************
 
     // **** Delete ******************************
-
 
 }
