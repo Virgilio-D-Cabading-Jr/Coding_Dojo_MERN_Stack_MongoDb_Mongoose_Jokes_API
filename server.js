@@ -14,7 +14,7 @@ app.use(express.json(), express.urlencoded({ extended: true }));
 require("./server/config/mongoose.config");
 
 // This is where we import the users routes function from our user.routes.js file
-const AllMyUserRoutes = require("./server/routes/user.routes");
-AllMyUserRoutes(app);
+const AllMyJokeRoutes = require("./server/routes/joke.routes");
+AllMyJokeRoutes(app);
 
 app.listen(PORT, () => console.log(`🦄🦄🦄 The server is all fired up on port ${PORT} 🦄🦄🦄`));

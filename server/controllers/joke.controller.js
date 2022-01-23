@@ -13,9 +13,9 @@ const Joke = require("../models/joke.model");
  * @param {*} res 
  */
 module.exports.createNewJoke = (req, res) => {
-    User.create(req.body)
+    Joke.create(req.body)
         .then(
-            newlyCreatedUser => res.json({ 
+            newlyCreatedJoke => res.json({ 
                 joke: newlyCreatedJoke,
                 message: "🍻🍻🍻 Success: Created a Joke 🍻🍻🍻"
             })
@@ -81,7 +81,7 @@ module.exports.fineOneJoke = (req, res) => {
  * @param {*} res 
  * @param {*} res 
  */
-module.exports.updateJoke = (res,res) => {
+module.exports.updateJoke = (req,res) => {
     Joke.findByIdAndUpdate( req.params.id, req.body, 
         { new: true, runValidators: true })
         .then(
@@ -105,7 +105,7 @@ module.exports.updateJoke = (res,res) => {
  * @param {*} res 
  * @param {*} res 
  */
-module.exports.deleteOneJoke = (res, res) => {
+module.exports.deleteOneJoke = (req, res) => {
     Joke.findByIdAndDelete(req.params.id)
         .then(
             result => res.json ({
