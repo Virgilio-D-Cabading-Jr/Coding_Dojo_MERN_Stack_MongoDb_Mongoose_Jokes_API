@@ -16,7 +16,8 @@ module.exports = app => {
     app.get("/api/jokes/:id", JokeController.fineOneJoke);
 
     // **** Update ******************************
+    app.put("/api/jokes/update/:id", JokeController.updateJoke);
 
     // **** Delete ******************************
-
+    app.delete("/api/jokes/delete/:id", JokeController.deleteOneJoke);
 }
