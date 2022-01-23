@@ -61,7 +61,13 @@ module.exports.fineOneJoke = (req, res) => {
         .then(
             aJoke => res.json ({
                 joke: aJoke,
-                message: " Success: Found a Joke "
+                message: "🥂🥂🥂 Success: Found a Joke 🥂🥂🥂"
+            })
+        )
+        .catch( err =>
+            res.json({
+                message: "🛑🛑🛑 Failure: UnAble to Find a Joke 🛑🛑🛑",
+                error: err
             })
         )
 };
