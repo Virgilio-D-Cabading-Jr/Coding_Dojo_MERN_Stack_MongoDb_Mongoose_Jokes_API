@@ -34,6 +34,7 @@ module.exports.createNewJoke = (req, res) => {
  * Find All Jokes
  * @param (*) req
  * @param (*) res
+ * @returns JSON with a List of Jokes
  */
 module.exports.findAllJokes = (req, res) => {
     Joke.find()
@@ -54,14 +55,15 @@ module.exports.findAllJokes = (req, res) => {
 /**
  * Find One Joke by ID (on Request Params)
  * @param {*} req 
- * @param {*} res 
+ * @param {*} res
+ * @returns JSON with a Joke that matches id given in req.params
  */
 module.exports.fineOneJoke = (req, res) => {
     Joke.findById(req.params.id)
         .then(
             aJoke => res.json ({
                 joke: aJoke,
-                message: "🥂🥂🥂 Success: Found a Joke 🥂🥂🥂"
+                message: "🦄🦄🦄 Success: Found a Joke 🦄🦄🦄"
             })
         )
         .catch( err =>
@@ -74,6 +76,27 @@ module.exports.fineOneJoke = (req, res) => {
 
 // //// UPDATE //////////////////////////////////
 
+/**
+ * Update a Joke by ID (on Request Params)
+ * @param {*} res 
+ * @param {*} res 
+ */
+module.exports.updateJoke = (res,res) => {
+    Joke.findByIdAndUpdate( req.params.id, req.body, 
+        { new: true, runValidators: true })
+        .then(
+            updatedJoke => res.json({
+                joke: updatedJoke,
+                message: "🍔🍔🍔 Success: Update a Joke 🍔🍔🍔"
+            })
+        )
+        .catch( err =>
+            res.json({
+                message: "🛑🛑🛑 Failure: UnAble to Update a Joke 🛑🛑🛑",
+                error: err
+            })
+        )
+};
 
 // //// DELETE //////////////////////////////////
 
