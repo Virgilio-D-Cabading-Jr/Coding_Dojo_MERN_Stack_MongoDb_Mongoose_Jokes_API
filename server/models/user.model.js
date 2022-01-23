@@ -1,10 +1,18 @@
+/////////////////////////////////////////////////
+//  MONGOOSE CONFIG
+/////////////////////////////////////////////////
+
+// //// FIELDS //////////////////////////////////
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema({
-	name: String,
-	age: Number
+// //// SCHEMAS /////////////////////////////////
+const JokeSchema = new mongoose.Schema({
+	setup: String,
+	punchline: String
 });
 
-const User = mongoose.model("User", UserSchema);
+// //// MODELS //////////////////////////////////
+const Joke = mongoose.model("Joke", JokeSchema);
 
-module.exports = User;
+// **** Export Model ********
+module.exports = Joke;
